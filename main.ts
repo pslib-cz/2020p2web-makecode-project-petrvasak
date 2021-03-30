@@ -1,3 +1,12 @@
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.create(), function(sprite, otherSprite) {
+    
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function() {
+    
+    myCosmonaut.say(":)",1000,)
+})
+
 scene.setBackgroundColor(4)
 
 let myCosmonaut = sprites.create(img`
@@ -17,7 +26,7 @@ let myCosmonaut = sprites.create(img`
      . . . . . 1 1 1 1 . . . . . . .
      . . . . . 1 1 1 1 . . . . . . .
      . . . . . . . . . . . . . . . .
- `)
+ `,SpriteKind.Player)
 
 controller.moveSprite(myCosmonaut,100,100)
 let mySprite2 = sprites.create(img`
@@ -37,5 +46,5 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-`,rock)
-
+`,SpriteKind.create())
+scene.cameraFollowSprite(myCosmonaut)
