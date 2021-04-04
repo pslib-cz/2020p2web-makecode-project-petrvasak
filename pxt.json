@@ -12,7 +12,9 @@
         "tilemap.g.ts",
         "images.g.jres",
         "images.g.ts",
-        "spritekindes.ts"
+        "spritekindes.ts",
+        "sp.images.ts",
+        "maps.ts"
     ],
     "testFiles": [
         "test.ts"
