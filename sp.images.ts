@@ -1,35 +1,8 @@
 namespace sp.images {
-    export const Kosmonaut= img `  . . . . . . . . . . . . . . . .
-    . . . . . 1 1 1 1 1 . . . . . .
-    . . . . . 1 f f 1 f . . . . . .
-    . . . . . 1 f f f 1 . . . . . .
-    . . . . . 1 f f f f . . . . . .
-    . . . . 1 1 1 1 1 1 . . . . . .
-    . . . 1 1 1 1 1 1 1 1 . . . . .
-    . . . 1 1 1 2 1 8 1 1 . . . . .
-    . . . 1 1 1 1 1 1 1 1 . . . . .
-    . . . 1 1 1 1 1 1 1 1 . . . . .
-    . . . . 1 1 1 1 1 1 . . . . . .
-    . . . . . 1 1 1 1 . . . . . . .
-    . . . . . 1 1 1 1 . . . . . . .
-    . . . . . 1 1 1 1 . . . . . . .
-    . . . . . 1 1 1 1 . . . . . . .
-    . . . . . . . . . . . . . . . .`;
-    export const Rock= img`   . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . d d d d . . . .
-    . . . . . . d d d d d d . . . .
-    . . . . . d d d e d e d . . . .
-    . . . . d d e d e e e d . . . .
-    . . . . d e e d e e e e . . . .
-    . . . . d e e e e e e e . . . .
-    . . . . d e e e e e e d . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .`;
+    export const Kosmonaut=assets.image`Kosmonaut`;
+    export const Rock=assets.image`Rock`;
+    export const Rocket=assets.image`Rocket0`;
+    export const Sample=assets.image`Sample`;
+    export const Hub=assets.image`Hub`;
    
 }
