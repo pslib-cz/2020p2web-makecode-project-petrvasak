@@ -30,18 +30,29 @@ let samplesCollected = 0;
 controller.moveSprite(kosmonaut);
 scene.cameraFollowSprite(kosmonaut);
 info.score()
+info.startCountdown(30)
 sprites.onOverlap(SpriteKind.Kosmonaut, SpriteKind.Sample, function (mainSprite, hitSprite) {
     samplesCollected++;
     
+    
     info.changeScoreBy(1)
-    hitSprite.destroy();
+    hitSprite.destroy(effects.rings);
 })
 sprites.onOverlap(SpriteKind.Kosmonaut, SpriteKind.Hub, function (mainSprite, hitSprite) {
-   
-    
+   if(samplesCollected == 14)
+   {
+    game.splash("Good job!");
     mainSprite.destroy();
 
     game.over()
+   }
+   else
+   {
+    game.splash("You don`t have all samples!");
+    kosmonaut.setPosition(kosmonaut.x - 10,kosmonaut.y - 20);
+   }
+    
+    
 })
 
 function lv1()
