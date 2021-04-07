@@ -3,12 +3,15 @@ function introSequence() {
 
   scene.setBackgroundImage(assets.image`myTile`);
   game.waitAnyButton()
-  game.showLongText("PIONEIR MARS IS DEAGREOUS PLACE. STORM IS COMING QUICKLI! YOU HAVE 30 sec TO COLECT SAMPLES AND ESCAPE TO THE HUB.", DialogLayout.Center)
+  game.showLongText("PIONEIR MARS IS DEAGREOUS PLACE. STORM IS COMING QUICKLI! YOU HAVE 60 sec TO COLECT SAMPLES AND ESCAPE TO THE HUB.", DialogLayout.Center)
  
     
     
 }
 introSequence();
+
+//--------------------------------------------------------------
+
 let kosmonaut = sprites.create(sp.images.Kosmonaut,SpriteKind.Kosmonaut); 
 let hub = sprites.create(sp.images.Hub,SpriteKind.Hub);
 
@@ -27,10 +30,37 @@ let sample12 = sprites.create(sp.images.Sample,SpriteKind.Sample);
 let sample13 = sprites.create(sp.images.Sample,SpriteKind.Sample);
 let sample14 = sprites.create(sp.images.Sample,SpriteKind.Sample);
 let samplesCollected = 0;
+
+//-------------------------------------------------------------------------
+// kosmonaut controller img ->
+
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    kosmonaut.setImage(assets.image`Kosmonaut2`)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    kosmonaut.setImage(assets.image`Kosmonaut`)
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    kosmonaut.setImage(assets.image`Kosmonaut1`)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    kosmonaut.setImage(assets.image`Kosmonaut`)
+})
+
+
+
+//-------------------------------------------------------------------------
+game.onUpdate(function() {
+    
+})
 controller.moveSprite(kosmonaut);
 scene.cameraFollowSprite(kosmonaut);
+
 info.score()
-info.startCountdown(30)
+info.startCountdown(60)
+
+//-------------------------------------------------------------------------
+//Ovrelapses ->
 sprites.onOverlap(SpriteKind.Kosmonaut, SpriteKind.Sample, function (mainSprite, hitSprite) {
     samplesCollected++;
     
@@ -44,40 +74,41 @@ sprites.onOverlap(SpriteKind.Kosmonaut, SpriteKind.Hub, function (mainSprite, hi
     game.splash("Good job!");
     mainSprite.destroy();
 
-    game.over()
+    game.over(true)
    }
    else
    {
-    game.splash("You don`t have all samples!");
+    
+    kosmonaut.say("I don't have all samples",1500)
     kosmonaut.setPosition(kosmonaut.x - 10,kosmonaut.y - 20);
    }
-    
-    
-})
+}) 
 
-function lv1()
+//-------------------------------------------------------------------------   
+    
+function setuplv1()
 {
-  scene.setTileMapLevel(tilemap`level3`)
+  scene.setTileMapLevel(tilemap`level0`)
   
   
   kosmonaut.setPosition(6, 6)
   hub.setPosition(160, 120)
-  sample1.setPosition(115,50)
-  sample2.setPosition(111,111)
-  sample3.setPosition(100,33)
-  sample4.setPosition(90,32)
-  sample5.setPosition(84,56)
-  sample6.setPosition(115,145)
-  sample7.setPosition(75,123)
-  sample8.setPosition(60,79)
-  sample9.setPosition(55,7)
-  sample10.setPosition(43,88)
-  sample11.setPosition(40,4)
-  sample12.setPosition(24,110)
-  sample13.setPosition(16,87)
-  sample14.setPosition(11,66)
+  sample1.setPosition(120,167)
+  sample2.setPosition(49,167)
+  sample3.setPosition(122,24)
+  sample4.setPosition(68,144)
+  sample5.setPosition(3,242)
+  sample6.setPosition(144,103)
+  sample7.setPosition(253,103)
+  sample8.setPosition(97,246)
+  sample9.setPosition(48,180)
+  sample10.setPosition(245,181)
+  sample11.setPosition(115,107)
+  sample12.setPosition(136,78)
+  sample13.setPosition(170,165)
+  sample14.setPosition(69,73)
 }
-lv1()
+setuplv1()
 
 function lv2()
 {
